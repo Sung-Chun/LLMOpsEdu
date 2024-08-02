@@ -11,18 +11,6 @@ llm = ChatOllama(model="llama3")
 embeddings = OllamaEmbeddings(model="llama3")
 
 
-'''
-doc_path = "/home/elicer/SUJINJEONG/DAY5/Synopsys-Documents/dw_lp_fp_multifunc.pdf"
-loader = PyPDFLoader(doc_path)
-docs = loader.load()
-
-
-
-doc_len = [len(doc.page_content) for doc in docs]
-print(doc_len)
-'''
-
-
 vectorstore = FAISS.load_local("faiss_index.bin", embeddings=embeddings, allow_dangerous_deserialization=True)
 
 db_retriever = vectorstore.as_retriever()
@@ -72,7 +60,7 @@ import streamlit as st
 qa_chain = init_chain()
 
 # Streamlit 애플리케이션 시작
-st.title("Real-time Text Generation with OpenAI API")
+st.title("Real-time Text Generation with Ollama API")
 
 # 입력 프롬프트 받기
 prompt = st.text_input("Enter your prompt:")

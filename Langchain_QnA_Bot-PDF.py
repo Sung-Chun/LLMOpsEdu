@@ -51,8 +51,8 @@ from langchain_core.runnables import RunnablePassthrough
 # In[5]:
 
 
-llm = ChatOllama(model="mistral:7b")
-embeddings = OllamaEmbeddings(model="mistral:7b")
+llm = ChatOllama(model="llama3")
+embeddings = OllamaEmbeddings(model="llama3")
 
 
 # 다음으로, 시장조사 PDF 문서를 불러와서 벡터화 해보겠습니다.

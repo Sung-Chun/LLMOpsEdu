@@ -209,7 +209,7 @@ if prompt and st.button("Generate Text"):
     st.write("Generating text...")
     
     # qa_chain을 사용하여 답변 생성
-    response = qa_chain.invoke(prompt)
+    response = qa_chain.stream(prompt)
     
     generated_text = ""
     

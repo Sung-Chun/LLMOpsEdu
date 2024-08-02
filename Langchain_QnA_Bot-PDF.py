@@ -66,7 +66,7 @@ embeddings = OllamaEmbeddings(model="llama3")
 # In[6]:
 
 
-doc_path = "Synopsys-Documents/dw_lp_fp_multifunc.pdf"
+doc_path = "/home/elicer/SUJINJEONG/DAY5/Synopsys-Documents/dw_lp_fp_multifunc.pdf"
 loader = PyPDFLoader(doc_path)
 docs = loader.load()
 
@@ -198,27 +198,27 @@ client = OpenAI(api_key=api_key, base_url="https://f08a-14-35-173-251.ngrok-free
 # qa_chain 초기화
 qa_chain = init_chain()
 
-# Streamlit 애플리케이션 시작
-st.title("Real-time Text Generation with OpenAI API")
+# # Streamlit 애플리케이션 시작
+# st.title("Real-time Text Generation with OpenAI API")
 
-# 입력 프롬프트 받기
-prompt = st.text_input("Enter your prompt:")
+# # 입력 프롬프트 받기
+# prompt = st.text_input("Enter your prompt:")
 
-if prompt and st.button("Generate Text"):
-    # 텍스트 생성 중 표시
-    st.write("Generating text...")
+# if prompt and st.button("Generate Text"):
+#     # 텍스트 생성 중 표시
+#     st.write("Generating text...")
     
-    # qa_chain을 사용하여 답변 생성
-    response = qa_chain.invoke(prompt)
+#     # qa_chain을 사용하여 답변 생성
+#     response = qa_chain.invoke(prompt)
     
-    generated_text = ""
+#     generated_text = ""
     
-    st.write(response)
+#     st.write(response)
 
-else:
-    st.warning("Please enter a prompt to generate text.")
+# else:
+#     st.warning("Please enter a prompt to generate text.")
 
 
-# 저희는 이전 챕터에서 구현한 챗봇이 가지고 있는 문제점 중 '문서나 데이터 기반 추론이 불가능하다.'를 완화했습니다.
-# 
-# 또한, 지금 구성한 챗봇은 UI가 없고 단순 표준 입출력 만을 사용합니다. 5챕터에서 Streamlit을 활용해 ChatGPT와 비슷한 웹 챗봇 어플리케이션을 제작해 볼 것입니다.
+# # 저희는 이전 챕터에서 구현한 챗봇이 가지고 있는 문제점 중 '문서나 데이터 기반 추론이 불가능하다.'를 완화했습니다.
+# # 
+# # 또한, 지금 구성한 챗봇은 UI가 없고 단순 표준 입출력 만을 사용합니다. 5챕터에서 Streamlit을 활용해 ChatGPT와 비슷한 웹 챗봇 어플리케이션을 제작해 볼 것입니다.

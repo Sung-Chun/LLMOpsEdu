@@ -11,7 +11,7 @@ llm = ChatOllama(model="llama3")
 embeddings = OllamaEmbeddings(model="llama3")
 
 
-
+'''
 doc_path = "/home/elicer/SUJINJEONG/DAY5/Synopsys-Documents/dw_lp_fp_multifunc.pdf"
 loader = PyPDFLoader(doc_path)
 docs = loader.load()
@@ -20,17 +20,12 @@ docs = loader.load()
 
 doc_len = [len(doc.page_content) for doc in docs]
 print(doc_len)
+'''
 
 
-
-vectorstore = FAISS.from_documents(
-    docs,
-    embedding=embeddings
-)
-
+vectorstore = FAISS.load_local("faiss_index.bin", embeddings=embeddings, allow_dangerous_deserialization=True)
 
 db_retriever = vectorstore.as_retriever()
-
 
 
 def get_retrieved_text(docs):
@@ -39,7 +34,7 @@ def get_retrieved_text(docs):
 
 def init_chain():
     messages_with_contexts = [
-        ("system", "문서 정보 전달 지원 챗봇입니다. 사용자가 입력하는 정보를 바탕으로 질문에 답하세요."),
+        ("system", "당신은 문서 정보 전달 지원 챗봇입니다. 사용자가 입력하는 정보를 바탕으로 질문에 답하세요."),
         ("human", "정보: {context}.\n{question}."),
     ]
 
